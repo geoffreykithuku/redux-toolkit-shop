@@ -6,7 +6,7 @@ import Cart from "./components/Cart";
 
 function App() {
   return (
-    <div className="w-screen justify-center mx-auto h-screen bg-[#f7f7f7]">
+    <div className="w-full justify-center mx-auto bg-[#f7f7f7]">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
