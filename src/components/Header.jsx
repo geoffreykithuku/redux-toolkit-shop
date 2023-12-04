@@ -12,8 +12,11 @@ const Header = () => {
         <div className="flex  justify-between items-center gap-8 w-full">
           <Link to="/">Products</Link>
 
-          <Link to="/cart">
+          <Link to="/cart" className="relative">
             <ShoppingCart size={24} />
+            <span className="absolute rounded-[50%] h-5 w-5 p-[2px] justify-center items-center flex text-[#454545] text-sm bg-[#f6f6f6] top-[-10px] right-[-14px]">
+              9
+            </span>
           </Link>
         </div>
       </div>
