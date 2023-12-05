@@ -1,21 +1,34 @@
-import { createSlice } from "@reduxjs/toolkit";
-import data from "../../components/data.json";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+const url = "https://fakestoreapi.com/products";
+
+export const fetchProducts = createAsyncThunk("shop/getProducts", async () => {
+  const response = await axios.get(url);
+  return response.data;
+});
 
 const initialState = {
-  products: data,
+  products: [],
   isLoading: false,
 };
 
 const shopSlice = createSlice({
   name: "shop",
   initialState,
-  reducers: {
-    getProducts: (state, action) => {
-      state.products = action.payload;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.products = action.payload;
+      })
+      .addCase(fetchProducts.rejected, (state) => {
+        state.isLoading = false;
+      });
   },
 });
-
-export const { getProducts } = shopSlice.actions;
 
 export default shopSlice.reducer;

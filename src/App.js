@@ -8,8 +8,9 @@ import { useSelector } from "react-redux";
 
 function App() {
   const { modalOpen } = useSelector((state) => state.modal);
+  
   return (
-    <div className="w-full justify-center mx-auto bg-[#f7f7f7]">
+    <div className="w-full justify-center mx-auto bg-[#f7f7f7] min-h-screen">
       <Header />
       {modalOpen && <Modal />}
       <Routes>
