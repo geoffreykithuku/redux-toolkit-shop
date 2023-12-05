@@ -1,5 +1,5 @@
 import React from "react";
-import data from "./data.json";
+
 import CartItem from "./CartItem";
 
 import { useDispatch, useSelector } from "react-redux";

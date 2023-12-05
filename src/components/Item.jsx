@@ -1,10 +1,10 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 
 import { addToCart } from "../features/cart/cartSlice";
 
 const Item = ({ item }) => {
-  const { id, category, price, image, title } = item;
+  const {  category, price, image, title } = item;
 
   const dispatch = useDispatch();
   return (

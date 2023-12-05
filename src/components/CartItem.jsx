@@ -7,7 +7,7 @@ import {
 } from "../features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 const CartItem = ({ item }) => {
-  const { id, category, price, image, title, quantity } = item;
+  const {price, image, title, quantity } = item;
   const dispatch = useDispatch();
   return (
     <div className="">
