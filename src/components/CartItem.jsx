@@ -4,12 +4,15 @@ const CartItem = ({ item }) => {
   const { id, category, price, image, title } = item;
   return (
     <div className="">
-      <div className=" w-full max-w-[700px] mx-auto p-2 bg-white shadow my-2 text-[#190443]">
+      <div className=" w-full max-w-[700px] mx-auto p-3 bg-white shadow my-2 text-[#190443]">
         <div className="flex justify-between w-full">
-          <span className="w-3/4">
-            <h1>{title}</h1>
-            <p className="font-medium">${price}</p>
-          </span>
+          <div className="flex gap-6 items-center">
+            <img src={image} alt={title} className="w-20 h-20" />
+            <span className="w-3/4">
+              <h1>{title}</h1>
+              <p className="font-medium text-sm mt-2">${price}</p>
+            </span>
+          </div>
           <span className="1/4 flex flex-col  justify-between items-center">
             <button>
               <ChevronUp />
