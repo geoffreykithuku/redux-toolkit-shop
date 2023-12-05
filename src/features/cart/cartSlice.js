@@ -33,11 +33,15 @@ const cartSlice = createSlice({
     removeFromCart: (state, action) => {
       const product = action.payload;
 
-      state.cartItems = state.cartItems.filter((i) => i.id !== product.id);
+      state.cartItems = state.cartItems.filter(
+        (item) => item.id !== product.id
+      );
+      const countOfRemovedItems = product.quantity;
 
-      state.count--;
-      state.total -= product.price;
+      state.count -= countOfRemovedItems;
+      state.total -= countOfRemovedItems * product.price;
     },
+
     incrementQuantity: (state, action) => {
       const product = action.payload;
       const item = state.cartItems.find((i) => i.id === product.id);
