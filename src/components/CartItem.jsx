@@ -30,7 +30,7 @@ const CartItem = ({ item }) => {
             </button>
           </span>
         </div>
-        <div className="flex justify-center mt-[-20px]">
+        <div className="flex justify-center mt-3 sm:mt-[-20px]">
           <button
             onClick={() => dispatch(removeFromCart(item))}
             className="border-[#190] text-[#190] border px-4 py-1 rounded-md "
