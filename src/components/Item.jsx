@@ -1,7 +1,12 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { addToCart } from "../features/cart/cartSlice";
 
 const Item = ({ item }) => {
   const { id, category, price, image, title } = item;
+
+  const dispatch = useDispatch();
   return (
     <div className="bg-white rounded-md shadow-md p-5 w-full">
       <p className="text-sm mb-2 text-gray-400">{category}</p>
@@ -17,7 +22,10 @@ const Item = ({ item }) => {
         <p className="text-[#190433] font-semibold bg-[#f7f7f7] px-4 py-2 rounded-md border">
           ${price}
         </p>
-        <button className="bg-[#190433] text-white px-4 py-2 rounded-md">
+        <button
+          onClick={() => dispatch(addToCart(item))}
+          className="bg-[#190433] text-white px-4 py-2 rounded-md"
+        >
           Add to cart
         </button>
       </div>
