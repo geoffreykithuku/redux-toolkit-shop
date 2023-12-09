@@ -5,16 +5,18 @@ import Home from "./components/Home";
 import Cart from "./components/Cart";
 import Modal from "./components/Modal";
 import { useSelector } from "react-redux";
+import Detail from "./components/Detail";
 
 function App() {
   const { modalOpen } = useSelector((state) => state.modal);
-  
+
   return (
     <div className="w-full justify-center mx-auto bg-[#f7f7f7] min-h-screen">
       <Header />
       {modalOpen && <Modal />}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/products/:id" element={<Detail />} />
 
         <Route path="/Cart" element={<Cart />} />
       </Routes>
